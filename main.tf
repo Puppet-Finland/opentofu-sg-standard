@@ -10,7 +10,7 @@ resource "aws_security_group" "standard" {
 resource "aws_security_group_rule" "ingress-private-ipv4" {
   security_group_id = aws_security_group.standard.id
   type              = "ingress"
-  cidr_blocks       = ["10.0.0.0/8", "192.168.0.0/16"]
+  cidr_blocks       = var.allow_any_from_cidr_blocks
   from_port         = 0
   to_port           = 0
   protocol          = "-1"
